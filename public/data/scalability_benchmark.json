@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "problem": "Capacitated Vehicle Routing Problem (CVRP)",
+    "benchmark_type": "Scalability Analysis",
+    "evaluated_sizes": [
+      10,
+      25,
+      50,
+      100,
+      250
+    ]
+  },
+  "results": [
+    {
+      "stops": 10,
+      "qpso_runtime_sec": 0.084,
+      "qpso_cost": 72169.79,
+      "pso_runtime_sec": 0.043,
+      "pso_cost": 82618.48,
+      "ga_runtime_sec": 0.024,
+      "ga_cost": 65449.69,
+      "greedy_runtime_sec": 0.001,
+      "greedy_cost": 74677.01,
+      "qpso_savings_vs_greedy_pct": 3.4,
+      "qpso_improvement_vs_pso_pct": 12.6
+    },
+    {
+      "stops": 25,
+      "qpso_runtime_sec": 0.081,
+      "qpso_cost": 115113.53,
+      "pso_runtime_sec": 0.029,
+      "pso_cost": 170430.81,
+      "ga_runtime_sec": 0.027,
+      "ga_cost": 131468.6,
+      "greedy_runtime_sec": 0.001,
+      "greedy_cost": 150544.3,
+      "qpso_savings_vs_greedy_pct": 23.5,
+      "qpso_improvement_vs_pso_pct": 32.5
+    },
+    {
+      "stops": 50,
+      "qpso_runtime_sec": 0.101,
+      "qpso_cost": 154835.59,
+      "pso_runtime_sec": 0.046,
+      "pso_cost": 370931.74,
+      "ga_runtime_sec": 0.036,
+      "ga_cost": 332420.18,
+      "greedy_runtime_sec": 0.001,
+      "greedy_cost": 175792.31,
+      "qpso_savings_vs_greedy_pct": 11.9,
+      "qpso_improvement_vs_pso_pct": 58.3
+    },
+    {
+      "stops": 100,
+      "qpso_runtime_sec": 0.135,
+      "qpso_cost": 209426.22,
+      "pso_runtime_sec": 0.086,
+      "pso_cost": 842073.07,
+      "ga_runtime_sec": 0.094,
+      "ga_cost": 627097.59,
+      "greedy_runtime_sec": 0.001,
+      "greedy_cost": 209555.03,
+      "qpso_savings_vs_greedy_pct": 0.1,
+      "qpso_improvement_vs_pso_pct": 75.1
+    },
+    {
+      "stops": 250,
+      "qpso_runtime_sec": 0.204,
+      "qpso_cost": 306439.31,
+      "pso_runtime_sec": 0.162,
+      "pso_cost": 2186412.54,
+      "ga_runtime_sec": 0.288,
+      "ga_cost": 1871973.31,
+      "greedy_runtime_sec": 0.0033,
+      "greedy_cost": 334701.26,
+      "qpso_savings_vs_greedy_pct": 8.4,
+      "qpso_improvement_vs_pso_pct": 86.0
+    }
+  ]
+}
