@@ -1,11 +1,11 @@
 ================================================================================
-QuantumRoute - How to Run the Application
+QuantumRoute (Q-Reach - SIH26137) - How to Run the Application
 ================================================================================
 
 Option 1: One-Click Launcher (Recommended)
 --------------------------------------------------------------------------------
 - Windows:
-    Double-click `run_app.bat` or run:
+    Double-click `run_app.bat` or run in CMD / PowerShell:
     .\run_app.bat
 
 - Linux / macOS:
@@ -18,59 +18,37 @@ Option 2: Manual Terminal Execution (2 Terminals)
 
 TERMINAL 1: FastAPI Optimization Backend (Port 8000)
 ----------------------------------------------------
-# 1. Navigate to the project root:
-cd d:\SIH26137
+# 1. Activate Python virtual environment (if using .venv):
+source .venv/bin/activate  # Linux/macOS
+# or .venv\Scripts\activate on Windows
 
-# 2. Activate virtual environment (if using .venv):
-# On Windows (PowerShell):
-.venv\Scripts\Activate.ps1
-# On Windows (CMD):
-.venv\Scripts\activate.bat
-# On macOS/Linux:
-source .venv/bin/activate
-
-# 3. (First time only) Install Python dependencies:
+# 2. Install Python dependencies:
 pip install -r backend/requirements.txt
-pip install -r engine/requirements.txt
 
-# 4. Start the FastAPI server:
-.venv\Scripts\python -m uvicorn backend.api:app --host 127.0.0.1 --port 8000 --reload
+# 3. Start the FastAPI server:
+PYTHONPATH=. python -m uvicorn backend.api:app --host 127.0.0.1 --port 8000 --reload
 
 FastAPI Docs will be available at: http://127.0.0.1:8000/docs
 
 
 TERMINAL 2: Next.js Frontend Web App (Port 3000)
 ------------------------------------------------
-# 1. Navigate to the web directory:
-cd d:\SIH26137\web
-
-# 2. (First time only) Install npm dependencies & setup SQLite DB:
+# 1. Install npm dependencies:
 npm install
-npx prisma db push
 
-# 3. Start development server:
+# 2. Start development server:
 npm run dev
-
-# (Alternatively, for production mode):
-# npm run build
-# npm run start
 
 Web App will be available at: http://localhost:3000
 
 
 ================================================================================
-Application Navigation Routes & Demo Logins
+Vercel Deployment Instructions
 ================================================================================
-- Landing Page:           http://localhost:3000
-- Order Intake Flow:      http://localhost:3000/orders
-                          (Single Order Placement & Synthetic Bulk Generator)
-- Fleet Operations Admin: http://localhost:3000/admin
-                          Login: admin  /  demo_admin_123
-                          (Or click 'Admin Fleet' demo button on landing page)
-- Driver Portal:          http://localhost:3000/driver
-                          Login: driver1  /  demo_driver_123
-                          (Or click 'Driver Portal' demo button on landing page)
-- Live Tracking Portal:   http://localhost:3000/track
-                          (Enter Stop Token ID e.g. D1 or stop UUID)
-- Analytics Dashboard:    http://localhost:3000/analytics
+To deploy this full-stack application (Next.js Frontend + Python Serverless Backend) to Vercel:
+
+1. Push your changes to GitHub / GitLab / Bitbucket repository.
+2. Go to https://vercel.com/new and import the repository.
+3. Vercel will automatically detect Next.js and use `vercel.json` and `api/index.py` for Python functions.
+4. Click "Deploy".
 ================================================================================

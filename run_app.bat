@@ -2,7 +2,7 @@
 title QuantumRoute - Launcher
 echo ========================================================
 echo  QuantumRoute: Quantum-Inspired Traffic Optimization
-echo  Smart India Hackathon Prototype
+echo  Smart India Hackathon Prototype (SIH26137)
 echo ========================================================
 echo.
 
@@ -20,16 +20,15 @@ if %errorlevel% neq 0 (
     set PY_CMD=py
 )
 
-echo [2/3] Starting FastAPI Backend on http://127.0.0.1:8000 ...
 if exist .venv\Scripts\python.exe (
     set PY_CMD=.venv\Scripts\python.exe
 )
-start "QuantumRoute Backend" cmd /k "%PY_CMD% -m uvicorn backend.api:app --host 127.0.0.1 --port 8000 --reload"
+
+echo [2/3] Starting FastAPI Backend on http://127.0.0.1:8000 ...
+start "QuantumRoute Backend" cmd /k "set PYTHONPATH=. && %PY_CMD% -m uvicorn backend.api:app --host 127.0.0.1 --port 8000 --reload"
 
 echo [3/3] Starting Next.js Web App on http://127.0.0.1:3000 ...
-cd web
-start "QuantumRoute Web" cmd /k "npm run dev"
-cd ..
+start "QuantumRoute Web App" cmd /k "npm run dev"
 
 echo.
 echo ========================================================
